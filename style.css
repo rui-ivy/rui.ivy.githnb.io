@@ -186,3 +186,77 @@ main {
 nav a:hover {
   text-decoration: underline;
 }
+.slider-container {
+    width: 90%; 
+    max-width: 900px; 
+    margin: 30px auto; 
+    overflow: hidden; 
+    border: 3px solid #ff4655; 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.slider-track {
+    display: flex; 
+    width: max-content; 
+    animation: slide-animation 25s linear infinite; 
+}
+
+.slider-track img {
+    height: 250px; 
+    width: auto;
+    object-fit: cover; 
+    display: block;
+    margin-right: 10px;
+}
+
+@keyframes slide-animation {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-50%); 
+    }
+}
+.carousel-container {
+    width: 100%; /* 全幅を使用 */
+    overflow: hidden; /* コンテナからはみ出た部分を隠す */
+    margin-bottom: 30px; /* 下に少しスペースを開ける */
+    white-space: nowrap; /* 画像が改行しないように設定 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影をつけて立体感を出す */
+}
+
+/* スライドさせるコンテナ */
+.carousel-slide {
+    display: flex;
+    /* CSSアニメーションを適用: carousel-scrollという名前で、30秒かけて、直線的に、無限に繰り返す */
+    animation: carousel-scroll 30s linear infinite;
+    padding: 10px 0; /* 上下に少し余白 */
+}
+
+/* カルーセル内の画像 */
+.carousel-img {
+    width: 150px; /* 画像の幅。適宜調整してください */
+    height: 150px; /* 画像の高さを固定 */
+    object-fit: cover; /* 画像がコンテナに収まるようにトリミング */
+    margin-right: 15px; /* 画像間のスペース */
+    border-radius: 8px; /* 角を丸くする */
+    flex-shrink: 0; /* 画像が縮まないようにする */
+}
+
+/* アニメーションの定義 */
+/* translateX()で要素全体を左に移動させ、画像を流れるように見せる */
+@keyframes carousel-scroll {
+    0% {
+        transform: translateX(0); /* 開始位置: 移動なし */
+    }
+    100% {
+        /* ★修正点: 全体の幅の半分の距離（オリジナルセットの終わり）まで移動 */
+        transform: translateX(-50%); 
+    }
+}
+.carousel-slide {
+    /* 例: 20s にすると速くなる */
+    animation: carousel-scroll 30s linear infinite;
+    /* ... */
+}
